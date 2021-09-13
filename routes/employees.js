@@ -30,6 +30,7 @@ router.get('/', (req,res)=> {
 
 //GETTING ONE EMPLOYEE's DATA
 router.get('/:id', (req,res)=> {
+    console.log("get api started...") 
     var num = req.params.id
     Employees.find({ id : num })
     .then( (doc) => {
@@ -57,11 +58,13 @@ router.get('/:id', (req,res)=> {
             code : 500,
             error : err })
     })
+    console.log("data get...|||") 
 })
     
 
 //POSTING ONE EMPLOYEE's DATA
 router.post('/', (req,res)=> {
+    console.log("Post api started...") 
     const employees = new Employees({
         id : req.body.id,
         name : req.body.name,
@@ -74,6 +77,7 @@ router.post('/', (req,res)=> {
         res.status(201).json({
             code : 201,
             message: "Employee " + req.body.name + "'s data has been recorded successfully",
+            
         })
     })
     .catch( error => {
@@ -82,6 +86,7 @@ router.post('/', (req,res)=> {
             code : 500, 
             error: error.message })
     })
+    console.log("Post methoda data saved") 
 })
 
 //DELETING ONE EMPLOYEE'S DATA
