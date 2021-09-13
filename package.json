@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "devStart": "nodemon server.js",
-    "start": "ng serve --proxy-config proxy.conf.json"
+    "start": "node server.js"
   },
   "author": "Kunal Bhingarkar",
   "license": "ISC",

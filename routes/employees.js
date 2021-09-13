@@ -40,8 +40,8 @@ router.get('/:id', (req,res)=> {
                 id : doc[0].id,
                 name : doc[0].name,
                 department : doc[0].department,
-                salary : "₹" + doc[0].salary,
-                attendancePercentage : doc[0].attendancePercentage + "%"
+                salary : doc[0].salary,
+                attendancePercentage : doc[0].attendancePercentage
             })
         }
         else
