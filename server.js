@@ -15,6 +15,7 @@ db.on("open", ()=> console.log("Connected to Database!"))
 
 app.use(express.json())
 app.use(cors())
+app.use(express.static('my-project'));// this is used for public static pages of ui
 //CORS Headers
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "http://localhost:4200");
