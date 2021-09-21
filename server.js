@@ -14,21 +14,29 @@ db.on("error", (error)=> console.log(error))
 db.on("open", ()=> console.log("Connected to Database!"))
 
 app.use(express.json())
-app.use(cors())
+
+
+
+app.use(cors(
+  {
+    origin:"http://35.238.35.201:3690/employees"
+  }
+))
+
 app.use(express.static('my-project'));// this is used for public static pages of ui
 //CORS Headers
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "http://localhost:4200");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-    );
-    if (req.method === 'OPTIONS') {
-        res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
-        return res.status(200).json({});
-    }
-    next();
-  });
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  if (req.method === 'OPTIONS') {
+      res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+      return res.status(200).json({});
+  }
+  next();
+});
 
 const employeesRouter  = require('./routes/employees')
 

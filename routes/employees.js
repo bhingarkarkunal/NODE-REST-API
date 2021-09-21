@@ -1,7 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const Employees = require('../models/employees')
-
+const cors=require('cors')
+//const cors=require('cors')
+// Allow all
+router.use(cors());
 //GETTING ALL EMPLOYEES' DATA
 router.get('/', (req,res)=> {
     Employees.find()
